@@ -32,7 +32,8 @@ jobs:
 
       - name: Compile to dist/
         run: |
-          nix develop --command tsc
+          nix develop --command -- npm run build 
+          nix develop --command -- npm run package
       
       - name: Commit and Push
         run: |

@@ -76,13 +76,13 @@ let
         sha512 = "0gv+qLSBLKF0z8TKaSKTsS39scVKF9dbMxJpj3U0vC7wjNWFuIpL/z76Qe2fiuCbDRcJSavkXsVtMS6/dtQQsg==";
       };
     };
-    "@octokit/openapi-types-12.10.0" = {
+    "@octokit/openapi-types-12.10.1" = {
       name = "_at_octokit_slash_openapi-types";
       packageName = "@octokit/openapi-types";
-      version = "12.10.0";
+      version = "12.10.1";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-12.10.0.tgz";
-        sha512 = "xsgA7LKuQ/2QReMZQXNlBP68ferPlqw66Jmx5/J399Cn5EgIDaHXou6Rgn1GkpDNjkPji67fTlC2rz6ABaVFKw==";
+        url = "https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-12.10.1.tgz";
+        sha512 = "P+SukKanjFY0ZhsK6wSVnQmxTP2eVPPE8OPSNuxaMYtgVzwJZgfGdwlYjf4RlRU4vLEw4ts2fsE2icG4nZ5ddQ==";
       };
     };
     "@octokit/plugin-paginate-rest-2.21.2" = {
@@ -146,6 +146,15 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@types/semver/-/semver-7.3.10.tgz";
         sha512 = "zsv3fsC7S84NN6nPK06u79oWgrPVd0NvOyqgghV1haPaFcVxIrP4DLomRwGAXk0ui4HZA7mOcSFL98sMVW9viw==";
+      };
+    };
+    "@vercel/ncc-0.31.1" = {
+      name = "_at_vercel_slash_ncc";
+      packageName = "@vercel/ncc";
+      version = "0.31.1";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@vercel/ncc/-/ncc-0.31.1.tgz";
+        sha512 = "g0FAxwdViI6UzsiVz5HssIHqjcPa1EHL6h+2dcJD893SoCJaGdqqgUF09xnMW6goWnnhbLvgiKlgJWrJa+7qYA==";
       };
     };
     "before-after-hook-2.2.2" = {
@@ -301,7 +310,7 @@ let
       sources."@octokit/core-3.6.0"
       sources."@octokit/endpoint-6.0.12"
       sources."@octokit/graphql-4.8.0"
-      sources."@octokit/openapi-types-12.10.0"
+      sources."@octokit/openapi-types-12.10.1"
       sources."@octokit/plugin-paginate-rest-2.21.2"
       sources."@octokit/plugin-rest-endpoint-methods-4.15.1"
       sources."@octokit/request-5.6.3"
@@ -309,6 +318,7 @@ let
       sources."@octokit/types-6.40.0"
       sources."@types/node-18.0.6"
       sources."@types/semver-7.3.10"
+      sources."@vercel/ncc-0.31.1"
       sources."before-after-hook-2.2.2"
       sources."deprecation-2.3.1"
       sources."is-plain-object-5.0.0"
