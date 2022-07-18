@@ -14,7 +14,7 @@
             type = "app";
             program = (nixpkgs.legacyPackages.${system}.writeShellScript "updateNodePackages" ''
               
-              ${nixpkgs.legacyPackages.${system}.nodePackages.node2nix}/bin/node2nix --nodejs-16 -d --include-peer-dependencies
+              ${nixpkgs.legacyPackages.${system}.nodePackages.node2nix}/bin/node2nix --nodejs-14 -d --include-peer-dependencies
             '').outPath;
           };
         });
@@ -27,12 +27,7 @@
           default = (import ./default.nix {
             inherit system;
             pkgs = nixpkgs.legacyPackages.${system};
-          }).shell.overrideAttrs ( old: {
-            shellHook = old.shellHook + ''
-            rm -rf node_modules
-            ln -sf "$NODE_PATH" ./node_modules
-            '';
-          });
+          }).shell;
 
         });
     };
