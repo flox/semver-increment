@@ -68,9 +68,8 @@ define("index", ["require", "exports", "@actions/github", "@actions/core", "semv
             const prerelease = !!core_1.default.getInput('prerelease');
             const base = core_1.default.getInput('base-version');
             const releaseType = core_1.default.getInput('release-type');
-            // const pattern = new RegExp(`^${tagPrefix}(\\d+)\\.(\\d+)\\.(\\d+)(-(\\w[\\w\.]*))?(\\+(\\w[\\w\\.]*))?$`, 'm');
             const tags = tagsGen(octokit, context);
-            let latest = index_1.default.parse(base);
+            let latest = index_1.default.coerce(base);
             let exists = false;
             if (latest === null) {
                 console.warn(`'${base} is not a valid semver base version`);
@@ -101,6 +100,7 @@ define("index", ["require", "exports", "@actions/github", "@actions/core", "semv
             if (exists) {
                 next = latest.inc(releaseType);
             }
+            core_1.default.setOutput('next-version', next.format());
             // if (dryRun === 'true') {
             //     console.log('Action configured for dry run. Exiting.');
             //     process.exit(0);
