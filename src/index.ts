@@ -62,6 +62,9 @@ async function run() {
 
 
     let latest = semver.coerce(base);
+
+    console.log(`base-ref '${base}' was parsed as ${latest.format()}`);
+
     let exists = false;
     
     if (latest === null) {
