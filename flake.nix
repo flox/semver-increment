@@ -27,7 +27,12 @@
           default = (import ./default.nix {
             inherit system;
             pkgs = nixpkgs.legacyPackages.${system};
-          }).shell;
+          }).shell.overrideAttrs (old: { 
+            shellHook = old.shellHook + ''
+              [[ -e ./node_modules ]] && rm node_modules
+              ln -s $NODE_PATH node_modules
+            '';
+          });
 
         });
     };
