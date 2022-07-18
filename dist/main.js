@@ -68,6 +68,7 @@ define("index", ["require", "exports", "@actions/github", "@actions/core", "semv
             const prerelease = !!core_1.default.getInput('prerelease');
             const base = core_1.default.getInput('base-version');
             const releaseType = core_1.default.getInput('release-type');
+            // const pattern = new RegExp(`^${tagPrefix}(\\d+)\\.(\\d+)\\.(\\d+)(-(\\w[\\w\.]*))?(\\+(\\w[\\w\\.]*))?$`, 'm');
             const tags = tagsGen(octokit, context);
             let latest = index_1.default.coerce(base);
             let exists = false;
