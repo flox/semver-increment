@@ -1,11 +1,34 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 566:
+/***/ 5943:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -38,9 +61,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const github_1 = __importDefault(__nccwpck_require__(2997));
-const core_1 = __importDefault(__nccwpck_require__(4588));
-const index_1 = __importDefault(__nccwpck_require__(5561));
+const github = __importStar(__nccwpck_require__(4838));
+const core = __importStar(__nccwpck_require__(128));
+const index_1 = __importDefault(__nccwpck_require__(602));
 function tagsGen(octokit, context) {
     return __asyncGenerator(this, arguments, function* tagsGen_1() {
         let page = 1;
@@ -67,13 +90,13 @@ function tagsGen(octokit, context) {
 function run() {
     var e_1, _a;
     return __awaiter(this, void 0, void 0, function* () {
-        const GITHUB_TOKEN = core_1.default.getInput('GITHUB_TOKEN');
-        const octokit = github_1.default.getOctokit(GITHUB_TOKEN);
-        const { context } = github_1.default;
-        const dryRun = core_1.default.getInput('dry-run');
-        const prerelease = !!core_1.default.getInput('prerelease');
-        const base = core_1.default.getInput('base-version');
-        const releaseType = core_1.default.getInput('release-type');
+        const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
+        const octokit = github.getOctokit(GITHUB_TOKEN);
+        const { context } = github;
+        const dryRun = core.getInput('dry-run');
+        const prerelease = !!core.getInput('prerelease');
+        const base = core.getInput('base-version');
+        const releaseType = core.getInput('release-type');
         // const pattern = new RegExp(`^${tagPrefix}(\\d+)\\.(\\d+)\\.(\\d+)(-(\\w[\\w\.]*))?(\\+(\\w[\\w\\.]*))?$`, 'm');
         const tags = tagsGen(octokit, context);
         let latest = index_1.default.coerce(base);
@@ -107,7 +130,7 @@ function run() {
         if (exists) {
             next = latest.inc(releaseType);
         }
-        core_1.default.setOutput('next-version', next.format());
+        core.setOutput('next-version', next.format());
         // if (dryRun === 'true') {
         //     console.log('Action configured for dry run. Exiting.');
         //     process.exit(0);
@@ -120,7 +143,7 @@ run();
 
 /***/ }),
 
-/***/ 3054:
+/***/ 9889:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -147,7 +170,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.issue = exports.issueCommand = void 0;
 const os = __importStar(__nccwpck_require__(2037));
-const utils_1 = __nccwpck_require__(9382);
+const utils_1 = __nccwpck_require__(6546);
 /**
  * Commands
  *
@@ -219,7 +242,7 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 4588:
+/***/ 128:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -254,12 +277,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getIDToken = exports.getState = exports.saveState = exports.group = exports.endGroup = exports.startGroup = exports.info = exports.notice = exports.warning = exports.error = exports.debug = exports.isDebug = exports.setFailed = exports.setCommandEcho = exports.setOutput = exports.getBooleanInput = exports.getMultilineInput = exports.getInput = exports.addPath = exports.setSecret = exports.exportVariable = exports.ExitCode = void 0;
-const command_1 = __nccwpck_require__(3054);
-const file_command_1 = __nccwpck_require__(8368);
-const utils_1 = __nccwpck_require__(9382);
+const command_1 = __nccwpck_require__(9889);
+const file_command_1 = __nccwpck_require__(4701);
+const utils_1 = __nccwpck_require__(6546);
 const os = __importStar(__nccwpck_require__(2037));
 const path = __importStar(__nccwpck_require__(1017));
-const oidc_utils_1 = __nccwpck_require__(7156);
+const oidc_utils_1 = __nccwpck_require__(9300);
 /**
  * The code to exit an action
  */
@@ -537,17 +560,17 @@ exports.getIDToken = getIDToken;
 /**
  * Summary exports
  */
-var summary_1 = __nccwpck_require__(9819);
+var summary_1 = __nccwpck_require__(2335);
 Object.defineProperty(exports, "summary", ({ enumerable: true, get: function () { return summary_1.summary; } }));
 /**
  * @deprecated use core.summary
  */
-var summary_2 = __nccwpck_require__(9819);
+var summary_2 = __nccwpck_require__(2335);
 Object.defineProperty(exports, "markdownSummary", ({ enumerable: true, get: function () { return summary_2.markdownSummary; } }));
 /**
  * Path exports
  */
-var path_utils_1 = __nccwpck_require__(9384);
+var path_utils_1 = __nccwpck_require__(9201);
 Object.defineProperty(exports, "toPosixPath", ({ enumerable: true, get: function () { return path_utils_1.toPosixPath; } }));
 Object.defineProperty(exports, "toWin32Path", ({ enumerable: true, get: function () { return path_utils_1.toWin32Path; } }));
 Object.defineProperty(exports, "toPlatformPath", ({ enumerable: true, get: function () { return path_utils_1.toPlatformPath; } }));
@@ -555,7 +578,7 @@ Object.defineProperty(exports, "toPlatformPath", ({ enumerable: true, get: funct
 
 /***/ }),
 
-/***/ 8368:
+/***/ 4701:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -586,7 +609,7 @@ exports.issueCommand = void 0;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__nccwpck_require__(7147));
 const os = __importStar(__nccwpck_require__(2037));
-const utils_1 = __nccwpck_require__(9382);
+const utils_1 = __nccwpck_require__(6546);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -604,7 +627,7 @@ exports.issueCommand = issueCommand;
 
 /***/ }),
 
-/***/ 7156:
+/***/ 9300:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -620,9 +643,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.OidcClient = void 0;
-const http_client_1 = __nccwpck_require__(6134);
-const auth_1 = __nccwpck_require__(7133);
-const core_1 = __nccwpck_require__(4588);
+const http_client_1 = __nccwpck_require__(9754);
+const auth_1 = __nccwpck_require__(18);
+const core_1 = __nccwpck_require__(128);
 class OidcClient {
     static createHttpClient(allowRetry = true, maxRetry = 10) {
         const requestOptions = {
@@ -688,7 +711,7 @@ exports.OidcClient = OidcClient;
 
 /***/ }),
 
-/***/ 9384:
+/***/ 9201:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -753,7 +776,7 @@ exports.toPlatformPath = toPlatformPath;
 
 /***/ }),
 
-/***/ 9819:
+/***/ 2335:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -1043,7 +1066,7 @@ exports.summary = _summary;
 
 /***/ }),
 
-/***/ 9382:
+/***/ 6546:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1090,7 +1113,7 @@ exports.toCommandProperties = toCommandProperties;
 
 /***/ }),
 
-/***/ 4159:
+/***/ 7789:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1151,7 +1174,7 @@ exports.Context = Context;
 
 /***/ }),
 
-/***/ 2997:
+/***/ 4838:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -1177,8 +1200,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getOctokit = exports.context = void 0;
-const Context = __importStar(__nccwpck_require__(4159));
-const utils_1 = __nccwpck_require__(3950);
+const Context = __importStar(__nccwpck_require__(7789));
+const utils_1 = __nccwpck_require__(9029);
 exports.context = new Context.Context();
 /**
  * Returns a hydrated octokit ready to use for GitHub Actions
@@ -1194,7 +1217,7 @@ exports.getOctokit = getOctokit;
 
 /***/ }),
 
-/***/ 6938:
+/***/ 8465:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -1220,7 +1243,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getApiBaseUrl = exports.getProxyAgent = exports.getAuthString = void 0;
-const httpClient = __importStar(__nccwpck_require__(6134));
+const httpClient = __importStar(__nccwpck_require__(9754));
 function getAuthString(token, options) {
     if (!token && !options.auth) {
         throw new Error('Parameter token or opts.auth is required');
@@ -1244,7 +1267,7 @@ exports.getApiBaseUrl = getApiBaseUrl;
 
 /***/ }),
 
-/***/ 3950:
+/***/ 9029:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -1270,12 +1293,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getOctokitOptions = exports.GitHub = exports.context = void 0;
-const Context = __importStar(__nccwpck_require__(4159));
-const Utils = __importStar(__nccwpck_require__(6938));
+const Context = __importStar(__nccwpck_require__(7789));
+const Utils = __importStar(__nccwpck_require__(8465));
 // octokit + plugins
-const core_1 = __nccwpck_require__(4826);
-const plugin_rest_endpoint_methods_1 = __nccwpck_require__(2909);
-const plugin_paginate_rest_1 = __nccwpck_require__(5783);
+const core_1 = __nccwpck_require__(4551);
+const plugin_rest_endpoint_methods_1 = __nccwpck_require__(6513);
+const plugin_paginate_rest_1 = __nccwpck_require__(745);
 exports.context = new Context.Context();
 const baseUrl = Utils.getApiBaseUrl();
 const defaults = {
@@ -1305,7 +1328,775 @@ exports.getOctokitOptions = getOctokitOptions;
 
 /***/ }),
 
-/***/ 5262:
+/***/ 18:
+/***/ (function(__unused_webpack_module, exports) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PersonalAccessTokenCredentialHandler = exports.BearerCredentialHandler = exports.BasicCredentialHandler = void 0;
+class BasicCredentialHandler {
+    constructor(username, password) {
+        this.username = username;
+        this.password = password;
+    }
+    prepareRequest(options) {
+        if (!options.headers) {
+            throw Error('The request has no headers');
+        }
+        options.headers['Authorization'] = `Basic ${Buffer.from(`${this.username}:${this.password}`).toString('base64')}`;
+    }
+    // This handler cannot handle 401
+    canHandleAuthentication() {
+        return false;
+    }
+    handleAuthentication() {
+        return __awaiter(this, void 0, void 0, function* () {
+            throw new Error('not implemented');
+        });
+    }
+}
+exports.BasicCredentialHandler = BasicCredentialHandler;
+class BearerCredentialHandler {
+    constructor(token) {
+        this.token = token;
+    }
+    // currently implements pre-authorization
+    // TODO: support preAuth = false where it hooks on 401
+    prepareRequest(options) {
+        if (!options.headers) {
+            throw Error('The request has no headers');
+        }
+        options.headers['Authorization'] = `Bearer ${this.token}`;
+    }
+    // This handler cannot handle 401
+    canHandleAuthentication() {
+        return false;
+    }
+    handleAuthentication() {
+        return __awaiter(this, void 0, void 0, function* () {
+            throw new Error('not implemented');
+        });
+    }
+}
+exports.BearerCredentialHandler = BearerCredentialHandler;
+class PersonalAccessTokenCredentialHandler {
+    constructor(token) {
+        this.token = token;
+    }
+    // currently implements pre-authorization
+    // TODO: support preAuth = false where it hooks on 401
+    prepareRequest(options) {
+        if (!options.headers) {
+            throw Error('The request has no headers');
+        }
+        options.headers['Authorization'] = `Basic ${Buffer.from(`PAT:${this.token}`).toString('base64')}`;
+    }
+    // This handler cannot handle 401
+    canHandleAuthentication() {
+        return false;
+    }
+    handleAuthentication() {
+        return __awaiter(this, void 0, void 0, function* () {
+            throw new Error('not implemented');
+        });
+    }
+}
+exports.PersonalAccessTokenCredentialHandler = PersonalAccessTokenCredentialHandler;
+//# sourceMappingURL=auth.js.map
+
+/***/ }),
+
+/***/ 9754:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.HttpClient = exports.isHttps = exports.HttpClientResponse = exports.HttpClientError = exports.getProxyUrl = exports.MediaTypes = exports.Headers = exports.HttpCodes = void 0;
+const http = __importStar(__nccwpck_require__(3685));
+const https = __importStar(__nccwpck_require__(5687));
+const pm = __importStar(__nccwpck_require__(4925));
+const tunnel = __importStar(__nccwpck_require__(4070));
+var HttpCodes;
+(function (HttpCodes) {
+    HttpCodes[HttpCodes["OK"] = 200] = "OK";
+    HttpCodes[HttpCodes["MultipleChoices"] = 300] = "MultipleChoices";
+    HttpCodes[HttpCodes["MovedPermanently"] = 301] = "MovedPermanently";
+    HttpCodes[HttpCodes["ResourceMoved"] = 302] = "ResourceMoved";
+    HttpCodes[HttpCodes["SeeOther"] = 303] = "SeeOther";
+    HttpCodes[HttpCodes["NotModified"] = 304] = "NotModified";
+    HttpCodes[HttpCodes["UseProxy"] = 305] = "UseProxy";
+    HttpCodes[HttpCodes["SwitchProxy"] = 306] = "SwitchProxy";
+    HttpCodes[HttpCodes["TemporaryRedirect"] = 307] = "TemporaryRedirect";
+    HttpCodes[HttpCodes["PermanentRedirect"] = 308] = "PermanentRedirect";
+    HttpCodes[HttpCodes["BadRequest"] = 400] = "BadRequest";
+    HttpCodes[HttpCodes["Unauthorized"] = 401] = "Unauthorized";
+    HttpCodes[HttpCodes["PaymentRequired"] = 402] = "PaymentRequired";
+    HttpCodes[HttpCodes["Forbidden"] = 403] = "Forbidden";
+    HttpCodes[HttpCodes["NotFound"] = 404] = "NotFound";
+    HttpCodes[HttpCodes["MethodNotAllowed"] = 405] = "MethodNotAllowed";
+    HttpCodes[HttpCodes["NotAcceptable"] = 406] = "NotAcceptable";
+    HttpCodes[HttpCodes["ProxyAuthenticationRequired"] = 407] = "ProxyAuthenticationRequired";
+    HttpCodes[HttpCodes["RequestTimeout"] = 408] = "RequestTimeout";
+    HttpCodes[HttpCodes["Conflict"] = 409] = "Conflict";
+    HttpCodes[HttpCodes["Gone"] = 410] = "Gone";
+    HttpCodes[HttpCodes["TooManyRequests"] = 429] = "TooManyRequests";
+    HttpCodes[HttpCodes["InternalServerError"] = 500] = "InternalServerError";
+    HttpCodes[HttpCodes["NotImplemented"] = 501] = "NotImplemented";
+    HttpCodes[HttpCodes["BadGateway"] = 502] = "BadGateway";
+    HttpCodes[HttpCodes["ServiceUnavailable"] = 503] = "ServiceUnavailable";
+    HttpCodes[HttpCodes["GatewayTimeout"] = 504] = "GatewayTimeout";
+})(HttpCodes = exports.HttpCodes || (exports.HttpCodes = {}));
+var Headers;
+(function (Headers) {
+    Headers["Accept"] = "accept";
+    Headers["ContentType"] = "content-type";
+})(Headers = exports.Headers || (exports.Headers = {}));
+var MediaTypes;
+(function (MediaTypes) {
+    MediaTypes["ApplicationJson"] = "application/json";
+})(MediaTypes = exports.MediaTypes || (exports.MediaTypes = {}));
+/**
+ * Returns the proxy URL, depending upon the supplied url and proxy environment variables.
+ * @param serverUrl  The server URL where the request will be sent. For example, https://api.github.com
+ */
+function getProxyUrl(serverUrl) {
+    const proxyUrl = pm.getProxyUrl(new URL(serverUrl));
+    return proxyUrl ? proxyUrl.href : '';
+}
+exports.getProxyUrl = getProxyUrl;
+const HttpRedirectCodes = [
+    HttpCodes.MovedPermanently,
+    HttpCodes.ResourceMoved,
+    HttpCodes.SeeOther,
+    HttpCodes.TemporaryRedirect,
+    HttpCodes.PermanentRedirect
+];
+const HttpResponseRetryCodes = [
+    HttpCodes.BadGateway,
+    HttpCodes.ServiceUnavailable,
+    HttpCodes.GatewayTimeout
+];
+const RetryableHttpVerbs = ['OPTIONS', 'GET', 'DELETE', 'HEAD'];
+const ExponentialBackoffCeiling = 10;
+const ExponentialBackoffTimeSlice = 5;
+class HttpClientError extends Error {
+    constructor(message, statusCode) {
+        super(message);
+        this.name = 'HttpClientError';
+        this.statusCode = statusCode;
+        Object.setPrototypeOf(this, HttpClientError.prototype);
+    }
+}
+exports.HttpClientError = HttpClientError;
+class HttpClientResponse {
+    constructor(message) {
+        this.message = message;
+    }
+    readBody() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return new Promise((resolve) => __awaiter(this, void 0, void 0, function* () {
+                let output = Buffer.alloc(0);
+                this.message.on('data', (chunk) => {
+                    output = Buffer.concat([output, chunk]);
+                });
+                this.message.on('end', () => {
+                    resolve(output.toString());
+                });
+            }));
+        });
+    }
+}
+exports.HttpClientResponse = HttpClientResponse;
+function isHttps(requestUrl) {
+    const parsedUrl = new URL(requestUrl);
+    return parsedUrl.protocol === 'https:';
+}
+exports.isHttps = isHttps;
+class HttpClient {
+    constructor(userAgent, handlers, requestOptions) {
+        this._ignoreSslError = false;
+        this._allowRedirects = true;
+        this._allowRedirectDowngrade = false;
+        this._maxRedirects = 50;
+        this._allowRetries = false;
+        this._maxRetries = 1;
+        this._keepAlive = false;
+        this._disposed = false;
+        this.userAgent = userAgent;
+        this.handlers = handlers || [];
+        this.requestOptions = requestOptions;
+        if (requestOptions) {
+            if (requestOptions.ignoreSslError != null) {
+                this._ignoreSslError = requestOptions.ignoreSslError;
+            }
+            this._socketTimeout = requestOptions.socketTimeout;
+            if (requestOptions.allowRedirects != null) {
+                this._allowRedirects = requestOptions.allowRedirects;
+            }
+            if (requestOptions.allowRedirectDowngrade != null) {
+                this._allowRedirectDowngrade = requestOptions.allowRedirectDowngrade;
+            }
+            if (requestOptions.maxRedirects != null) {
+                this._maxRedirects = Math.max(requestOptions.maxRedirects, 0);
+            }
+            if (requestOptions.keepAlive != null) {
+                this._keepAlive = requestOptions.keepAlive;
+            }
+            if (requestOptions.allowRetries != null) {
+                this._allowRetries = requestOptions.allowRetries;
+            }
+            if (requestOptions.maxRetries != null) {
+                this._maxRetries = requestOptions.maxRetries;
+            }
+        }
+    }
+    options(requestUrl, additionalHeaders) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.request('OPTIONS', requestUrl, null, additionalHeaders || {});
+        });
+    }
+    get(requestUrl, additionalHeaders) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.request('GET', requestUrl, null, additionalHeaders || {});
+        });
+    }
+    del(requestUrl, additionalHeaders) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.request('DELETE', requestUrl, null, additionalHeaders || {});
+        });
+    }
+    post(requestUrl, data, additionalHeaders) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.request('POST', requestUrl, data, additionalHeaders || {});
+        });
+    }
+    patch(requestUrl, data, additionalHeaders) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.request('PATCH', requestUrl, data, additionalHeaders || {});
+        });
+    }
+    put(requestUrl, data, additionalHeaders) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.request('PUT', requestUrl, data, additionalHeaders || {});
+        });
+    }
+    head(requestUrl, additionalHeaders) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.request('HEAD', requestUrl, null, additionalHeaders || {});
+        });
+    }
+    sendStream(verb, requestUrl, stream, additionalHeaders) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.request(verb, requestUrl, stream, additionalHeaders);
+        });
+    }
+    /**
+     * Gets a typed object from an endpoint
+     * Be aware that not found returns a null.  Other errors (4xx, 5xx) reject the promise
+     */
+    getJson(requestUrl, additionalHeaders = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+            additionalHeaders[Headers.Accept] = this._getExistingOrDefaultHeader(additionalHeaders, Headers.Accept, MediaTypes.ApplicationJson);
+            const res = yield this.get(requestUrl, additionalHeaders);
+            return this._processResponse(res, this.requestOptions);
+        });
+    }
+    postJson(requestUrl, obj, additionalHeaders = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const data = JSON.stringify(obj, null, 2);
+            additionalHeaders[Headers.Accept] = this._getExistingOrDefaultHeader(additionalHeaders, Headers.Accept, MediaTypes.ApplicationJson);
+            additionalHeaders[Headers.ContentType] = this._getExistingOrDefaultHeader(additionalHeaders, Headers.ContentType, MediaTypes.ApplicationJson);
+            const res = yield this.post(requestUrl, data, additionalHeaders);
+            return this._processResponse(res, this.requestOptions);
+        });
+    }
+    putJson(requestUrl, obj, additionalHeaders = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const data = JSON.stringify(obj, null, 2);
+            additionalHeaders[Headers.Accept] = this._getExistingOrDefaultHeader(additionalHeaders, Headers.Accept, MediaTypes.ApplicationJson);
+            additionalHeaders[Headers.ContentType] = this._getExistingOrDefaultHeader(additionalHeaders, Headers.ContentType, MediaTypes.ApplicationJson);
+            const res = yield this.put(requestUrl, data, additionalHeaders);
+            return this._processResponse(res, this.requestOptions);
+        });
+    }
+    patchJson(requestUrl, obj, additionalHeaders = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const data = JSON.stringify(obj, null, 2);
+            additionalHeaders[Headers.Accept] = this._getExistingOrDefaultHeader(additionalHeaders, Headers.Accept, MediaTypes.ApplicationJson);
+            additionalHeaders[Headers.ContentType] = this._getExistingOrDefaultHeader(additionalHeaders, Headers.ContentType, MediaTypes.ApplicationJson);
+            const res = yield this.patch(requestUrl, data, additionalHeaders);
+            return this._processResponse(res, this.requestOptions);
+        });
+    }
+    /**
+     * Makes a raw http request.
+     * All other methods such as get, post, patch, and request ultimately call this.
+     * Prefer get, del, post and patch
+     */
+    request(verb, requestUrl, data, headers) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (this._disposed) {
+                throw new Error('Client has already been disposed.');
+            }
+            const parsedUrl = new URL(requestUrl);
+            let info = this._prepareRequest(verb, parsedUrl, headers);
+            // Only perform retries on reads since writes may not be idempotent.
+            const maxTries = this._allowRetries && RetryableHttpVerbs.includes(verb)
+                ? this._maxRetries + 1
+                : 1;
+            let numTries = 0;
+            let response;
+            do {
+                response = yield this.requestRaw(info, data);
+                // Check if it's an authentication challenge
+                if (response &&
+                    response.message &&
+                    response.message.statusCode === HttpCodes.Unauthorized) {
+                    let authenticationHandler;
+                    for (const handler of this.handlers) {
+                        if (handler.canHandleAuthentication(response)) {
+                            authenticationHandler = handler;
+                            break;
+                        }
+                    }
+                    if (authenticationHandler) {
+                        return authenticationHandler.handleAuthentication(this, info, data);
+                    }
+                    else {
+                        // We have received an unauthorized response but have no handlers to handle it.
+                        // Let the response return to the caller.
+                        return response;
+                    }
+                }
+                let redirectsRemaining = this._maxRedirects;
+                while (response.message.statusCode &&
+                    HttpRedirectCodes.includes(response.message.statusCode) &&
+                    this._allowRedirects &&
+                    redirectsRemaining > 0) {
+                    const redirectUrl = response.message.headers['location'];
+                    if (!redirectUrl) {
+                        // if there's no location to redirect to, we won't
+                        break;
+                    }
+                    const parsedRedirectUrl = new URL(redirectUrl);
+                    if (parsedUrl.protocol === 'https:' &&
+                        parsedUrl.protocol !== parsedRedirectUrl.protocol &&
+                        !this._allowRedirectDowngrade) {
+                        throw new Error('Redirect from HTTPS to HTTP protocol. This downgrade is not allowed for security reasons. If you want to allow this behavior, set the allowRedirectDowngrade option to true.');
+                    }
+                    // we need to finish reading the response before reassigning response
+                    // which will leak the open socket.
+                    yield response.readBody();
+                    // strip authorization header if redirected to a different hostname
+                    if (parsedRedirectUrl.hostname !== parsedUrl.hostname) {
+                        for (const header in headers) {
+                            // header names are case insensitive
+                            if (header.toLowerCase() === 'authorization') {
+                                delete headers[header];
+                            }
+                        }
+                    }
+                    // let's make the request with the new redirectUrl
+                    info = this._prepareRequest(verb, parsedRedirectUrl, headers);
+                    response = yield this.requestRaw(info, data);
+                    redirectsRemaining--;
+                }
+                if (!response.message.statusCode ||
+                    !HttpResponseRetryCodes.includes(response.message.statusCode)) {
+                    // If not a retry code, return immediately instead of retrying
+                    return response;
+                }
+                numTries += 1;
+                if (numTries < maxTries) {
+                    yield response.readBody();
+                    yield this._performExponentialBackoff(numTries);
+                }
+            } while (numTries < maxTries);
+            return response;
+        });
+    }
+    /**
+     * Needs to be called if keepAlive is set to true in request options.
+     */
+    dispose() {
+        if (this._agent) {
+            this._agent.destroy();
+        }
+        this._disposed = true;
+    }
+    /**
+     * Raw request.
+     * @param info
+     * @param data
+     */
+    requestRaw(info, data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return new Promise((resolve, reject) => {
+                function callbackForResult(err, res) {
+                    if (err) {
+                        reject(err);
+                    }
+                    else if (!res) {
+                        // If `err` is not passed, then `res` must be passed.
+                        reject(new Error('Unknown error'));
+                    }
+                    else {
+                        resolve(res);
+                    }
+                }
+                this.requestRawWithCallback(info, data, callbackForResult);
+            });
+        });
+    }
+    /**
+     * Raw request with callback.
+     * @param info
+     * @param data
+     * @param onResult
+     */
+    requestRawWithCallback(info, data, onResult) {
+        if (typeof data === 'string') {
+            if (!info.options.headers) {
+                info.options.headers = {};
+            }
+            info.options.headers['Content-Length'] = Buffer.byteLength(data, 'utf8');
+        }
+        let callbackCalled = false;
+        function handleResult(err, res) {
+            if (!callbackCalled) {
+                callbackCalled = true;
+                onResult(err, res);
+            }
+        }
+        const req = info.httpModule.request(info.options, (msg) => {
+            const res = new HttpClientResponse(msg);
+            handleResult(undefined, res);
+        });
+        let socket;
+        req.on('socket', sock => {
+            socket = sock;
+        });
+        // If we ever get disconnected, we want the socket to timeout eventually
+        req.setTimeout(this._socketTimeout || 3 * 60000, () => {
+            if (socket) {
+                socket.end();
+            }
+            handleResult(new Error(`Request timeout: ${info.options.path}`));
+        });
+        req.on('error', function (err) {
+            // err has statusCode property
+            // res should have headers
+            handleResult(err);
+        });
+        if (data && typeof data === 'string') {
+            req.write(data, 'utf8');
+        }
+        if (data && typeof data !== 'string') {
+            data.on('close', function () {
+                req.end();
+            });
+            data.pipe(req);
+        }
+        else {
+            req.end();
+        }
+    }
+    /**
+     * Gets an http agent. This function is useful when you need an http agent that handles
+     * routing through a proxy server - depending upon the url and proxy environment variables.
+     * @param serverUrl  The server URL where the request will be sent. For example, https://api.github.com
+     */
+    getAgent(serverUrl) {
+        const parsedUrl = new URL(serverUrl);
+        return this._getAgent(parsedUrl);
+    }
+    _prepareRequest(method, requestUrl, headers) {
+        const info = {};
+        info.parsedUrl = requestUrl;
+        const usingSsl = info.parsedUrl.protocol === 'https:';
+        info.httpModule = usingSsl ? https : http;
+        const defaultPort = usingSsl ? 443 : 80;
+        info.options = {};
+        info.options.host = info.parsedUrl.hostname;
+        info.options.port = info.parsedUrl.port
+            ? parseInt(info.parsedUrl.port)
+            : defaultPort;
+        info.options.path =
+            (info.parsedUrl.pathname || '') + (info.parsedUrl.search || '');
+        info.options.method = method;
+        info.options.headers = this._mergeHeaders(headers);
+        if (this.userAgent != null) {
+            info.options.headers['user-agent'] = this.userAgent;
+        }
+        info.options.agent = this._getAgent(info.parsedUrl);
+        // gives handlers an opportunity to participate
+        if (this.handlers) {
+            for (const handler of this.handlers) {
+                handler.prepareRequest(info.options);
+            }
+        }
+        return info;
+    }
+    _mergeHeaders(headers) {
+        if (this.requestOptions && this.requestOptions.headers) {
+            return Object.assign({}, lowercaseKeys(this.requestOptions.headers), lowercaseKeys(headers || {}));
+        }
+        return lowercaseKeys(headers || {});
+    }
+    _getExistingOrDefaultHeader(additionalHeaders, header, _default) {
+        let clientHeader;
+        if (this.requestOptions && this.requestOptions.headers) {
+            clientHeader = lowercaseKeys(this.requestOptions.headers)[header];
+        }
+        return additionalHeaders[header] || clientHeader || _default;
+    }
+    _getAgent(parsedUrl) {
+        let agent;
+        const proxyUrl = pm.getProxyUrl(parsedUrl);
+        const useProxy = proxyUrl && proxyUrl.hostname;
+        if (this._keepAlive && useProxy) {
+            agent = this._proxyAgent;
+        }
+        if (this._keepAlive && !useProxy) {
+            agent = this._agent;
+        }
+        // if agent is already assigned use that agent.
+        if (agent) {
+            return agent;
+        }
+        const usingSsl = parsedUrl.protocol === 'https:';
+        let maxSockets = 100;
+        if (this.requestOptions) {
+            maxSockets = this.requestOptions.maxSockets || http.globalAgent.maxSockets;
+        }
+        // This is `useProxy` again, but we need to check `proxyURl` directly for TypeScripts's flow analysis.
+        if (proxyUrl && proxyUrl.hostname) {
+            const agentOptions = {
+                maxSockets,
+                keepAlive: this._keepAlive,
+                proxy: Object.assign(Object.assign({}, ((proxyUrl.username || proxyUrl.password) && {
+                    proxyAuth: `${proxyUrl.username}:${proxyUrl.password}`
+                })), { host: proxyUrl.hostname, port: proxyUrl.port })
+            };
+            let tunnelAgent;
+            const overHttps = proxyUrl.protocol === 'https:';
+            if (usingSsl) {
+                tunnelAgent = overHttps ? tunnel.httpsOverHttps : tunnel.httpsOverHttp;
+            }
+            else {
+                tunnelAgent = overHttps ? tunnel.httpOverHttps : tunnel.httpOverHttp;
+            }
+            agent = tunnelAgent(agentOptions);
+            this._proxyAgent = agent;
+        }
+        // if reusing agent across request and tunneling agent isn't assigned create a new agent
+        if (this._keepAlive && !agent) {
+            const options = { keepAlive: this._keepAlive, maxSockets };
+            agent = usingSsl ? new https.Agent(options) : new http.Agent(options);
+            this._agent = agent;
+        }
+        // if not using private agent and tunnel agent isn't setup then use global agent
+        if (!agent) {
+            agent = usingSsl ? https.globalAgent : http.globalAgent;
+        }
+        if (usingSsl && this._ignoreSslError) {
+            // we don't want to set NODE_TLS_REJECT_UNAUTHORIZED=0 since that will affect request for entire process
+            // http.RequestOptions doesn't expose a way to modify RequestOptions.agent.options
+            // we have to cast it to any and change it directly
+            agent.options = Object.assign(agent.options || {}, {
+                rejectUnauthorized: false
+            });
+        }
+        return agent;
+    }
+    _performExponentialBackoff(retryNumber) {
+        return __awaiter(this, void 0, void 0, function* () {
+            retryNumber = Math.min(ExponentialBackoffCeiling, retryNumber);
+            const ms = ExponentialBackoffTimeSlice * Math.pow(2, retryNumber);
+            return new Promise(resolve => setTimeout(() => resolve(), ms));
+        });
+    }
+    _processResponse(res, options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+                const statusCode = res.message.statusCode || 0;
+                const response = {
+                    statusCode,
+                    result: null,
+                    headers: {}
+                };
+                // not found leads to null obj returned
+                if (statusCode === HttpCodes.NotFound) {
+                    resolve(response);
+                }
+                // get the result from the body
+                function dateTimeDeserializer(key, value) {
+                    if (typeof value === 'string') {
+                        const a = new Date(value);
+                        if (!isNaN(a.valueOf())) {
+                            return a;
+                        }
+                    }
+                    return value;
+                }
+                let obj;
+                let contents;
+                try {
+                    contents = yield res.readBody();
+                    if (contents && contents.length > 0) {
+                        if (options && options.deserializeDates) {
+                            obj = JSON.parse(contents, dateTimeDeserializer);
+                        }
+                        else {
+                            obj = JSON.parse(contents);
+                        }
+                        response.result = obj;
+                    }
+                    response.headers = res.message.headers;
+                }
+                catch (err) {
+                    // Invalid resource (contents not json);  leaving result obj null
+                }
+                // note that 3xx redirects are handled by the http layer.
+                if (statusCode > 299) {
+                    let msg;
+                    // if exception/error in body, attempt to get better error
+                    if (obj && obj.message) {
+                        msg = obj.message;
+                    }
+                    else if (contents && contents.length > 0) {
+                        // it may be the case that the exception is in the body message as string
+                        msg = contents;
+                    }
+                    else {
+                        msg = `Failed request: (${statusCode})`;
+                    }
+                    const err = new HttpClientError(msg, statusCode);
+                    err.result = response.result;
+                    reject(err);
+                }
+                else {
+                    resolve(response);
+                }
+            }));
+        });
+    }
+}
+exports.HttpClient = HttpClient;
+const lowercaseKeys = (obj) => Object.keys(obj).reduce((c, k) => ((c[k.toLowerCase()] = obj[k]), c), {});
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 4925:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.checkBypass = exports.getProxyUrl = void 0;
+function getProxyUrl(reqUrl) {
+    const usingSsl = reqUrl.protocol === 'https:';
+    if (checkBypass(reqUrl)) {
+        return undefined;
+    }
+    const proxyVar = (() => {
+        if (usingSsl) {
+            return process.env['https_proxy'] || process.env['HTTPS_PROXY'];
+        }
+        else {
+            return process.env['http_proxy'] || process.env['HTTP_PROXY'];
+        }
+    })();
+    if (proxyVar) {
+        return new URL(proxyVar);
+    }
+    else {
+        return undefined;
+    }
+}
+exports.getProxyUrl = getProxyUrl;
+function checkBypass(reqUrl) {
+    if (!reqUrl.hostname) {
+        return false;
+    }
+    const noProxy = process.env['no_proxy'] || process.env['NO_PROXY'] || '';
+    if (!noProxy) {
+        return false;
+    }
+    // Determine the request port
+    let reqPort;
+    if (reqUrl.port) {
+        reqPort = Number(reqUrl.port);
+    }
+    else if (reqUrl.protocol === 'http:') {
+        reqPort = 80;
+    }
+    else if (reqUrl.protocol === 'https:') {
+        reqPort = 443;
+    }
+    // Format the request hostname and hostname with port
+    const upperReqHosts = [reqUrl.hostname.toUpperCase()];
+    if (typeof reqPort === 'number') {
+        upperReqHosts.push(`${upperReqHosts[0]}:${reqPort}`);
+    }
+    // Compare request host against noproxy
+    for (const upperNoProxyItem of noProxy
+        .split(',')
+        .map(x => x.trim().toUpperCase())
+        .filter(x => x)) {
+        if (upperReqHosts.some(x => x === upperNoProxyItem)) {
+            return true;
+        }
+    }
+    return false;
+}
+exports.checkBypass = checkBypass;
+//# sourceMappingURL=proxy.js.map
+
+/***/ }),
+
+/***/ 6560:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const ANY = Symbol('SemVer ANY')
@@ -1438,17 +2229,17 @@ class Comparator {
 
 module.exports = Comparator
 
-const parseOptions = __nccwpck_require__(8607)
-const { re, t } = __nccwpck_require__(3086)
-const cmp = __nccwpck_require__(8033)
-const debug = __nccwpck_require__(4074)
-const SemVer = __nccwpck_require__(1449)
-const Range = __nccwpck_require__(969)
+const parseOptions = __nccwpck_require__(1387)
+const { re, t } = __nccwpck_require__(3921)
+const cmp = __nccwpck_require__(1626)
+const debug = __nccwpck_require__(39)
+const SemVer = __nccwpck_require__(3585)
+const Range = __nccwpck_require__(6192)
 
 
 /***/ }),
 
-/***/ 969:
+/***/ 6192:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // hoisted class for cyclic dependency
@@ -1645,20 +2436,20 @@ class Range {
 }
 module.exports = Range
 
-const LRU = __nccwpck_require__(3595)
+const LRU = __nccwpck_require__(5597)
 const cache = new LRU({ max: 1000 })
 
-const parseOptions = __nccwpck_require__(8607)
-const Comparator = __nccwpck_require__(5262)
-const debug = __nccwpck_require__(4074)
-const SemVer = __nccwpck_require__(1449)
+const parseOptions = __nccwpck_require__(1387)
+const Comparator = __nccwpck_require__(6560)
+const debug = __nccwpck_require__(39)
+const SemVer = __nccwpck_require__(3585)
 const {
   re,
   t,
   comparatorTrimReplace,
   tildeTrimReplace,
   caretTrimReplace,
-} = __nccwpck_require__(3086)
+} = __nccwpck_require__(3921)
 
 const isNullSet = c => c.value === '<0.0.0-0'
 const isAny = c => c.value === ''
@@ -1974,15 +2765,15 @@ const testSet = (set, version, options) => {
 
 /***/ }),
 
-/***/ 1449:
+/***/ 3585:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const debug = __nccwpck_require__(4074)
-const { MAX_LENGTH, MAX_SAFE_INTEGER } = __nccwpck_require__(7186)
-const { re, t } = __nccwpck_require__(3086)
+const debug = __nccwpck_require__(39)
+const { MAX_LENGTH, MAX_SAFE_INTEGER } = __nccwpck_require__(4390)
+const { re, t } = __nccwpck_require__(3921)
 
-const parseOptions = __nccwpck_require__(8607)
-const { compareIdentifiers } = __nccwpck_require__(6682)
+const parseOptions = __nccwpck_require__(1387)
+const { compareIdentifiers } = __nccwpck_require__(5402)
 class SemVer {
   constructor (version, options) {
     options = parseOptions(options)
@@ -2268,10 +3059,10 @@ module.exports = SemVer
 
 /***/ }),
 
-/***/ 5614:
+/***/ 8329:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const parse = __nccwpck_require__(9210)
+const parse = __nccwpck_require__(9381)
 const clean = (version, options) => {
   const s = parse(version.trim().replace(/^[=v]+/, ''), options)
   return s ? s.version : null
@@ -2281,15 +3072,15 @@ module.exports = clean
 
 /***/ }),
 
-/***/ 8033:
+/***/ 1626:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const eq = __nccwpck_require__(9823)
-const neq = __nccwpck_require__(8790)
-const gt = __nccwpck_require__(9546)
-const gte = __nccwpck_require__(6391)
-const lt = __nccwpck_require__(6423)
-const lte = __nccwpck_require__(1240)
+const eq = __nccwpck_require__(3569)
+const neq = __nccwpck_require__(461)
+const gt = __nccwpck_require__(8098)
+const gte = __nccwpck_require__(6633)
+const lt = __nccwpck_require__(5192)
+const lte = __nccwpck_require__(2768)
 
 const cmp = (a, op, b, loose) => {
   switch (op) {
@@ -2340,12 +3131,12 @@ module.exports = cmp
 
 /***/ }),
 
-/***/ 6539:
+/***/ 1791:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const SemVer = __nccwpck_require__(1449)
-const parse = __nccwpck_require__(9210)
-const { re, t } = __nccwpck_require__(3086)
+const SemVer = __nccwpck_require__(3585)
+const parse = __nccwpck_require__(9381)
+const { re, t } = __nccwpck_require__(3921)
 
 const coerce = (version, options) => {
   if (version instanceof SemVer) {
@@ -2399,10 +3190,10 @@ module.exports = coerce
 
 /***/ }),
 
-/***/ 7320:
+/***/ 3893:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const SemVer = __nccwpck_require__(1449)
+const SemVer = __nccwpck_require__(3585)
 const compareBuild = (a, b, loose) => {
   const versionA = new SemVer(a, loose)
   const versionB = new SemVer(b, loose)
@@ -2413,20 +3204,20 @@ module.exports = compareBuild
 
 /***/ }),
 
-/***/ 5350:
+/***/ 7779:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const compare = __nccwpck_require__(1298)
+const compare = __nccwpck_require__(2152)
 const compareLoose = (a, b) => compare(a, b, true)
 module.exports = compareLoose
 
 
 /***/ }),
 
-/***/ 1298:
+/***/ 2152:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const SemVer = __nccwpck_require__(1449)
+const SemVer = __nccwpck_require__(3585)
 const compare = (a, b, loose) =>
   new SemVer(a, loose).compare(new SemVer(b, loose))
 
@@ -2435,11 +3226,11 @@ module.exports = compare
 
 /***/ }),
 
-/***/ 7194:
+/***/ 2944:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const parse = __nccwpck_require__(9210)
-const eq = __nccwpck_require__(9823)
+const parse = __nccwpck_require__(9381)
+const eq = __nccwpck_require__(3569)
 
 const diff = (version1, version2) => {
   if (eq(version1, version2)) {
@@ -2465,40 +3256,40 @@ module.exports = diff
 
 /***/ }),
 
-/***/ 9823:
+/***/ 3569:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const compare = __nccwpck_require__(1298)
+const compare = __nccwpck_require__(2152)
 const eq = (a, b, loose) => compare(a, b, loose) === 0
 module.exports = eq
 
 
 /***/ }),
 
-/***/ 9546:
+/***/ 8098:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const compare = __nccwpck_require__(1298)
+const compare = __nccwpck_require__(2152)
 const gt = (a, b, loose) => compare(a, b, loose) > 0
 module.exports = gt
 
 
 /***/ }),
 
-/***/ 6391:
+/***/ 6633:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const compare = __nccwpck_require__(1298)
+const compare = __nccwpck_require__(2152)
 const gte = (a, b, loose) => compare(a, b, loose) >= 0
 module.exports = gte
 
 
 /***/ }),
 
-/***/ 7935:
+/***/ 8521:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const SemVer = __nccwpck_require__(1449)
+const SemVer = __nccwpck_require__(3585)
 
 const inc = (version, release, options, identifier) => {
   if (typeof (options) === 'string') {
@@ -2520,64 +3311,64 @@ module.exports = inc
 
 /***/ }),
 
-/***/ 6423:
+/***/ 5192:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const compare = __nccwpck_require__(1298)
+const compare = __nccwpck_require__(2152)
 const lt = (a, b, loose) => compare(a, b, loose) < 0
 module.exports = lt
 
 
 /***/ }),
 
-/***/ 1240:
+/***/ 2768:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const compare = __nccwpck_require__(1298)
+const compare = __nccwpck_require__(2152)
 const lte = (a, b, loose) => compare(a, b, loose) <= 0
 module.exports = lte
 
 
 /***/ }),
 
-/***/ 7445:
+/***/ 6105:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const SemVer = __nccwpck_require__(1449)
+const SemVer = __nccwpck_require__(3585)
 const major = (a, loose) => new SemVer(a, loose).major
 module.exports = major
 
 
 /***/ }),
 
-/***/ 5252:
+/***/ 7132:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const SemVer = __nccwpck_require__(1449)
+const SemVer = __nccwpck_require__(3585)
 const minor = (a, loose) => new SemVer(a, loose).minor
 module.exports = minor
 
 
 /***/ }),
 
-/***/ 8790:
+/***/ 461:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const compare = __nccwpck_require__(1298)
+const compare = __nccwpck_require__(2152)
 const neq = (a, b, loose) => compare(a, b, loose) !== 0
 module.exports = neq
 
 
 /***/ }),
 
-/***/ 9210:
+/***/ 9381:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const { MAX_LENGTH } = __nccwpck_require__(7186)
-const { re, t } = __nccwpck_require__(3086)
-const SemVer = __nccwpck_require__(1449)
+const { MAX_LENGTH } = __nccwpck_require__(4390)
+const { re, t } = __nccwpck_require__(3921)
+const SemVer = __nccwpck_require__(3585)
 
-const parseOptions = __nccwpck_require__(8607)
+const parseOptions = __nccwpck_require__(1387)
 const parse = (version, options) => {
   options = parseOptions(options)
 
@@ -2610,20 +3401,20 @@ module.exports = parse
 
 /***/ }),
 
-/***/ 6793:
+/***/ 1938:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const SemVer = __nccwpck_require__(1449)
+const SemVer = __nccwpck_require__(3585)
 const patch = (a, loose) => new SemVer(a, loose).patch
 module.exports = patch
 
 
 /***/ }),
 
-/***/ 4072:
+/***/ 9250:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const parse = __nccwpck_require__(9210)
+const parse = __nccwpck_require__(9381)
 const prerelease = (version, options) => {
   const parsed = parse(version, options)
   return (parsed && parsed.prerelease.length) ? parsed.prerelease : null
@@ -2633,30 +3424,30 @@ module.exports = prerelease
 
 /***/ }),
 
-/***/ 9075:
+/***/ 5305:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const compare = __nccwpck_require__(1298)
+const compare = __nccwpck_require__(2152)
 const rcompare = (a, b, loose) => compare(b, a, loose)
 module.exports = rcompare
 
 
 /***/ }),
 
-/***/ 7702:
+/***/ 8207:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const compareBuild = __nccwpck_require__(7320)
+const compareBuild = __nccwpck_require__(3893)
 const rsort = (list, loose) => list.sort((a, b) => compareBuild(b, a, loose))
 module.exports = rsort
 
 
 /***/ }),
 
-/***/ 6960:
+/***/ 7590:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const Range = __nccwpck_require__(969)
+const Range = __nccwpck_require__(6192)
 const satisfies = (version, range, options) => {
   try {
     range = new Range(range, options)
@@ -2670,20 +3461,20 @@ module.exports = satisfies
 
 /***/ }),
 
-/***/ 4314:
+/***/ 4338:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const compareBuild = __nccwpck_require__(7320)
+const compareBuild = __nccwpck_require__(3893)
 const sort = (list, loose) => list.sort((a, b) => compareBuild(a, b, loose))
 module.exports = sort
 
 
 /***/ }),
 
-/***/ 4059:
+/***/ 2367:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const parse = __nccwpck_require__(9210)
+const parse = __nccwpck_require__(9381)
 const valid = (version, options) => {
   const v = parse(version, options)
   return v ? v.version : null
@@ -2693,62 +3484,62 @@ module.exports = valid
 
 /***/ }),
 
-/***/ 5561:
+/***/ 602:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // just pre-load all the stuff that index.js lazily exports
-const internalRe = __nccwpck_require__(3086)
+const internalRe = __nccwpck_require__(3921)
 module.exports = {
   re: internalRe.re,
   src: internalRe.src,
   tokens: internalRe.t,
-  SEMVER_SPEC_VERSION: (__nccwpck_require__(7186).SEMVER_SPEC_VERSION),
-  SemVer: __nccwpck_require__(1449),
-  compareIdentifiers: (__nccwpck_require__(6682).compareIdentifiers),
-  rcompareIdentifiers: (__nccwpck_require__(6682).rcompareIdentifiers),
-  parse: __nccwpck_require__(9210),
-  valid: __nccwpck_require__(4059),
-  clean: __nccwpck_require__(5614),
-  inc: __nccwpck_require__(7935),
-  diff: __nccwpck_require__(7194),
-  major: __nccwpck_require__(7445),
-  minor: __nccwpck_require__(5252),
-  patch: __nccwpck_require__(6793),
-  prerelease: __nccwpck_require__(4072),
-  compare: __nccwpck_require__(1298),
-  rcompare: __nccwpck_require__(9075),
-  compareLoose: __nccwpck_require__(5350),
-  compareBuild: __nccwpck_require__(7320),
-  sort: __nccwpck_require__(4314),
-  rsort: __nccwpck_require__(7702),
-  gt: __nccwpck_require__(9546),
-  lt: __nccwpck_require__(6423),
-  eq: __nccwpck_require__(9823),
-  neq: __nccwpck_require__(8790),
-  gte: __nccwpck_require__(6391),
-  lte: __nccwpck_require__(1240),
-  cmp: __nccwpck_require__(8033),
-  coerce: __nccwpck_require__(6539),
-  Comparator: __nccwpck_require__(5262),
-  Range: __nccwpck_require__(969),
-  satisfies: __nccwpck_require__(6960),
-  toComparators: __nccwpck_require__(8977),
-  maxSatisfying: __nccwpck_require__(8527),
-  minSatisfying: __nccwpck_require__(963),
-  minVersion: __nccwpck_require__(9066),
-  validRange: __nccwpck_require__(5951),
-  outside: __nccwpck_require__(8889),
-  gtr: __nccwpck_require__(5126),
-  ltr: __nccwpck_require__(3250),
-  intersects: __nccwpck_require__(6016),
-  simplifyRange: __nccwpck_require__(2412),
-  subset: __nccwpck_require__(9121),
+  SEMVER_SPEC_VERSION: (__nccwpck_require__(4390).SEMVER_SPEC_VERSION),
+  SemVer: __nccwpck_require__(3585),
+  compareIdentifiers: (__nccwpck_require__(5402).compareIdentifiers),
+  rcompareIdentifiers: (__nccwpck_require__(5402).rcompareIdentifiers),
+  parse: __nccwpck_require__(9381),
+  valid: __nccwpck_require__(2367),
+  clean: __nccwpck_require__(8329),
+  inc: __nccwpck_require__(8521),
+  diff: __nccwpck_require__(2944),
+  major: __nccwpck_require__(6105),
+  minor: __nccwpck_require__(7132),
+  patch: __nccwpck_require__(1938),
+  prerelease: __nccwpck_require__(9250),
+  compare: __nccwpck_require__(2152),
+  rcompare: __nccwpck_require__(5305),
+  compareLoose: __nccwpck_require__(7779),
+  compareBuild: __nccwpck_require__(3893),
+  sort: __nccwpck_require__(4338),
+  rsort: __nccwpck_require__(8207),
+  gt: __nccwpck_require__(8098),
+  lt: __nccwpck_require__(5192),
+  eq: __nccwpck_require__(3569),
+  neq: __nccwpck_require__(461),
+  gte: __nccwpck_require__(6633),
+  lte: __nccwpck_require__(2768),
+  cmp: __nccwpck_require__(1626),
+  coerce: __nccwpck_require__(1791),
+  Comparator: __nccwpck_require__(6560),
+  Range: __nccwpck_require__(6192),
+  satisfies: __nccwpck_require__(7590),
+  toComparators: __nccwpck_require__(4661),
+  maxSatisfying: __nccwpck_require__(8920),
+  minSatisfying: __nccwpck_require__(2308),
+  minVersion: __nccwpck_require__(2924),
+  validRange: __nccwpck_require__(8293),
+  outside: __nccwpck_require__(1062),
+  gtr: __nccwpck_require__(7868),
+  ltr: __nccwpck_require__(2338),
+  intersects: __nccwpck_require__(7966),
+  simplifyRange: __nccwpck_require__(5263),
+  subset: __nccwpck_require__(5492),
 }
 
 
 /***/ }),
 
-/***/ 7186:
+/***/ 4390:
 /***/ ((module) => {
 
 // Note: this is the semver.org version of the spec that it implements
@@ -2772,7 +3563,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 4074:
+/***/ 39:
 /***/ ((module) => {
 
 const debug = (
@@ -2788,7 +3579,7 @@ module.exports = debug
 
 /***/ }),
 
-/***/ 6682:
+/***/ 5402:
 /***/ ((module) => {
 
 const numeric = /^[0-9]+$/
@@ -2818,7 +3609,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 8607:
+/***/ 1387:
 /***/ ((module) => {
 
 // parse out just the options we care about so we always get a consistent
@@ -2836,11 +3627,11 @@ module.exports = parseOptions
 
 /***/ }),
 
-/***/ 3086:
+/***/ 3921:
 /***/ ((module, exports, __nccwpck_require__) => {
 
-const { MAX_SAFE_COMPONENT_LENGTH } = __nccwpck_require__(7186)
-const debug = __nccwpck_require__(4074)
+const { MAX_SAFE_COMPONENT_LENGTH } = __nccwpck_require__(4390)
+const debug = __nccwpck_require__(39)
 exports = module.exports = {}
 
 // The actual regexps go on exports.re
@@ -3025,21 +3816,21 @@ createToken('GTE0PRE', '^\\s*>=\\s*0\\.0\\.0-0\\s*$')
 
 /***/ }),
 
-/***/ 5126:
+/***/ 7868:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // Determine if version is greater than all the versions possible in the range.
-const outside = __nccwpck_require__(8889)
+const outside = __nccwpck_require__(1062)
 const gtr = (version, range, options) => outside(version, range, '>', options)
 module.exports = gtr
 
 
 /***/ }),
 
-/***/ 6016:
+/***/ 7966:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const Range = __nccwpck_require__(969)
+const Range = __nccwpck_require__(6192)
 const intersects = (r1, r2, options) => {
   r1 = new Range(r1, options)
   r2 = new Range(r2, options)
@@ -3050,10 +3841,10 @@ module.exports = intersects
 
 /***/ }),
 
-/***/ 3250:
+/***/ 2338:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const outside = __nccwpck_require__(8889)
+const outside = __nccwpck_require__(1062)
 // Determine if version is less than all the versions possible in the range
 const ltr = (version, range, options) => outside(version, range, '<', options)
 module.exports = ltr
@@ -3061,11 +3852,11 @@ module.exports = ltr
 
 /***/ }),
 
-/***/ 8527:
+/***/ 8920:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const SemVer = __nccwpck_require__(1449)
-const Range = __nccwpck_require__(969)
+const SemVer = __nccwpck_require__(3585)
+const Range = __nccwpck_require__(6192)
 
 const maxSatisfying = (versions, range, options) => {
   let max = null
@@ -3093,11 +3884,11 @@ module.exports = maxSatisfying
 
 /***/ }),
 
-/***/ 963:
+/***/ 2308:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const SemVer = __nccwpck_require__(1449)
-const Range = __nccwpck_require__(969)
+const SemVer = __nccwpck_require__(3585)
+const Range = __nccwpck_require__(6192)
 const minSatisfying = (versions, range, options) => {
   let min = null
   let minSV = null
@@ -3124,12 +3915,12 @@ module.exports = minSatisfying
 
 /***/ }),
 
-/***/ 9066:
+/***/ 2924:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const SemVer = __nccwpck_require__(1449)
-const Range = __nccwpck_require__(969)
-const gt = __nccwpck_require__(9546)
+const SemVer = __nccwpck_require__(3585)
+const Range = __nccwpck_require__(6192)
+const gt = __nccwpck_require__(8098)
 
 const minVersion = (range, loose) => {
   range = new Range(range, loose)
@@ -3192,18 +3983,18 @@ module.exports = minVersion
 
 /***/ }),
 
-/***/ 8889:
+/***/ 1062:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const SemVer = __nccwpck_require__(1449)
-const Comparator = __nccwpck_require__(5262)
+const SemVer = __nccwpck_require__(3585)
+const Comparator = __nccwpck_require__(6560)
 const { ANY } = Comparator
-const Range = __nccwpck_require__(969)
-const satisfies = __nccwpck_require__(6960)
-const gt = __nccwpck_require__(9546)
-const lt = __nccwpck_require__(6423)
-const lte = __nccwpck_require__(1240)
-const gte = __nccwpck_require__(6391)
+const Range = __nccwpck_require__(6192)
+const satisfies = __nccwpck_require__(7590)
+const gt = __nccwpck_require__(8098)
+const lt = __nccwpck_require__(5192)
+const lte = __nccwpck_require__(2768)
+const gte = __nccwpck_require__(6633)
 
 const outside = (version, range, hilo, options) => {
   version = new SemVer(version, options)
@@ -3279,14 +4070,14 @@ module.exports = outside
 
 /***/ }),
 
-/***/ 2412:
+/***/ 5263:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // given a set of versions and a range, create a "simplified" range
 // that includes the same versions that the original range does
 // If the original range is shorter than the simplified one, return that.
-const satisfies = __nccwpck_require__(6960)
-const compare = __nccwpck_require__(1298)
+const satisfies = __nccwpck_require__(7590)
+const compare = __nccwpck_require__(2152)
 module.exports = (versions, range, options) => {
   const set = []
   let first = null
@@ -3333,14 +4124,14 @@ module.exports = (versions, range, options) => {
 
 /***/ }),
 
-/***/ 9121:
+/***/ 5492:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const Range = __nccwpck_require__(969)
-const Comparator = __nccwpck_require__(5262)
+const Range = __nccwpck_require__(6192)
+const Comparator = __nccwpck_require__(6560)
 const { ANY } = Comparator
-const satisfies = __nccwpck_require__(6960)
-const compare = __nccwpck_require__(1298)
+const satisfies = __nccwpck_require__(7590)
+const compare = __nccwpck_require__(2152)
 
 // Complex range `r1 || r2 || ...` is a subset of `R1 || R2 || ...` iff:
 // - Every simple range `r1, r2, ...` is a null set, OR
@@ -3584,10 +4375,10 @@ module.exports = subset
 
 /***/ }),
 
-/***/ 8977:
+/***/ 4661:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const Range = __nccwpck_require__(969)
+const Range = __nccwpck_require__(6192)
 
 // Mostly just for testing and legacy API reasons
 const toComparators = (range, options) =>
@@ -3599,10 +4390,10 @@ module.exports = toComparators
 
 /***/ }),
 
-/***/ 5951:
+/***/ 8293:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-const Range = __nccwpck_require__(969)
+const Range = __nccwpck_require__(6192)
 const validRange = (range, options) => {
   try {
     // Return '*' instead of '' so that truthiness works.
@@ -3617,23 +4408,7 @@ module.exports = validRange
 
 /***/ }),
 
-/***/ 6134:
-/***/ ((module) => {
-
-module.exports = eval("require")("@actions/http-client");
-
-
-/***/ }),
-
-/***/ 7133:
-/***/ ((module) => {
-
-module.exports = eval("require")("@actions/http-client/lib/auth");
-
-
-/***/ }),
-
-/***/ 4826:
+/***/ 4551:
 /***/ ((module) => {
 
 module.exports = eval("require")("@octokit/core");
@@ -3641,7 +4416,7 @@ module.exports = eval("require")("@octokit/core");
 
 /***/ }),
 
-/***/ 5783:
+/***/ 745:
 /***/ ((module) => {
 
 module.exports = eval("require")("@octokit/plugin-paginate-rest");
@@ -3649,7 +4424,7 @@ module.exports = eval("require")("@octokit/plugin-paginate-rest");
 
 /***/ }),
 
-/***/ 2909:
+/***/ 6513:
 /***/ ((module) => {
 
 module.exports = eval("require")("@octokit/plugin-rest-endpoint-methods");
@@ -3657,10 +4432,18 @@ module.exports = eval("require")("@octokit/plugin-rest-endpoint-methods");
 
 /***/ }),
 
-/***/ 3595:
+/***/ 5597:
 /***/ ((module) => {
 
 module.exports = eval("require")("lru-cache");
+
+
+/***/ }),
+
+/***/ 4070:
+/***/ ((module) => {
+
+module.exports = eval("require")("tunnel");
 
 
 /***/ }),
@@ -3670,6 +4453,22 @@ module.exports = eval("require")("lru-cache");
 
 "use strict";
 module.exports = require("fs");
+
+/***/ }),
+
+/***/ 3685:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("http");
+
+/***/ }),
+
+/***/ 5687:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("https");
 
 /***/ }),
 
@@ -3731,7 +4530,7 @@ module.exports = require("path");
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __nccwpck_require__(566);
+/******/ 	var __webpack_exports__ = __nccwpck_require__(5943);
 /******/ 	module.exports = __webpack_exports__;
 /******/ 	
 /******/ })()
