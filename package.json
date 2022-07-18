@@ -2,7 +2,7 @@
   "name": "semver-increment",
   "version": "0.0.1",
   "description": "",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
     "package": "ncc build --source-map --license licenses.txt",
