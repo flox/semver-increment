@@ -60,7 +60,7 @@ async function run() {
     const tags = tagsGen(octokit, context);
 
 
-    let latest = semver.parse(base);
+    let latest = semver.coerce(base);
     let exists = false;
     
     if (latest === null) {
