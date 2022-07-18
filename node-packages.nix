@@ -13,22 +13,13 @@ let
         sha512 = "5pbM693Ih59ZdUhgk+fts+bUWTnIdHV3kwOSr+QIoFHMLg7Gzhwm0cifDY/AG68ekEJAkHnQVpcy4f6GjmzBCA==";
       };
     };
-    "@actions/github-4.0.0" = {
+    "@actions/github-5.0.3" = {
       name = "_at_actions_slash_github";
       packageName = "@actions/github";
-      version = "4.0.0";
+      version = "5.0.3";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@actions/github/-/github-4.0.0.tgz";
-        sha512 = "Ej/Y2E+VV6sR9X7pWL5F3VgEWrABaT292DRqRU6R4hnQjPtC/zD3nagxVdXWiRQvYDh8kHXo7IDmG42eJ/dOMA==";
-      };
-    };
-    "@actions/http-client-1.0.11" = {
-      name = "_at_actions_slash_http-client";
-      packageName = "@actions/http-client";
-      version = "1.0.11";
-      src = fetchurl {
-        url = "https://registry.npmjs.org/@actions/http-client/-/http-client-1.0.11.tgz";
-        sha512 = "VRYHGQV1rqnROJqdMvGUbY/Kn8vriQe/F9HR2AlYHzmKuM/p3kjNuXhmdBfcVgsvRWTz5C5XW5xvndZrVBuAYg==";
+        url = "https://registry.npmjs.org/@actions/github/-/github-5.0.3.tgz";
+        sha512 = "myjA/pdLQfhUGLtRZC/J4L1RXOG4o6aYdiEq+zr5wVVKljzbFld+xv10k1FX6IkIJtNxbAq44BdwSNpQ015P0A==";
       };
     };
     "@actions/http-client-2.0.1" = {
@@ -94,13 +85,13 @@ let
         sha512 = "S24H0a6bBVreJtoTaRHT/gnVASbOHVTRMOVIqd9zrJBP3JozsxJB56TDuTUmd1xLI4/rAE2HNmThvVKtIdLLEw==";
       };
     };
-    "@octokit/plugin-rest-endpoint-methods-4.15.1" = {
+    "@octokit/plugin-rest-endpoint-methods-5.16.2" = {
       name = "_at_octokit_slash_plugin-rest-endpoint-methods";
       packageName = "@octokit/plugin-rest-endpoint-methods";
-      version = "4.15.1";
+      version = "5.16.2";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-4.15.1.tgz";
-        sha512 = "4gQg4ySoW7ktKB0Mf38fHzcSffVZd6mT5deJQtpqkuPuAqzlED5AJTeW8Uk7dPRn7KaOlWcXB0MedTFJU1j4qA==";
+        url = "https://registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-5.16.2.tgz";
+        sha512 = "8QFz29Fg5jDuTPXVtey05BLm7OB+M8fnvE64RNegzX7U+5NUXcOcnpTIK0YfSHBg8gYd0oxIq3IZTe9SfPZiRw==";
       };
     };
     "@octokit/request-5.6.3" = {
@@ -148,13 +139,13 @@ let
         sha512 = "zsv3fsC7S84NN6nPK06u79oWgrPVd0NvOyqgghV1haPaFcVxIrP4DLomRwGAXk0ui4HZA7mOcSFL98sMVW9viw==";
       };
     };
-    "@vercel/ncc-0.31.1" = {
+    "@vercel/ncc-0.34.0" = {
       name = "_at_vercel_slash_ncc";
       packageName = "@vercel/ncc";
-      version = "0.31.1";
+      version = "0.34.0";
       src = fetchurl {
-        url = "https://registry.npmjs.org/@vercel/ncc/-/ncc-0.31.1.tgz";
-        sha512 = "g0FAxwdViI6UzsiVz5HssIHqjcPa1EHL6h+2dcJD893SoCJaGdqqgUF09xnMW6goWnnhbLvgiKlgJWrJa+7qYA==";
+        url = "https://registry.npmjs.org/@vercel/ncc/-/ncc-0.34.0.tgz";
+        sha512 = "G9h5ZLBJ/V57Ou9vz5hI8pda/YQX5HQszCs3AmIus3XzsmRn/0Ptic5otD3xVST8QLKk7AMk7AqpsyQGN7MZ9A==";
       };
     };
     "before-after-hook-2.2.2" = {
@@ -300,11 +291,7 @@ let
     src = ./.;
     dependencies = [
       sources."@actions/core-1.9.0"
-      (sources."@actions/github-4.0.0" // {
-        dependencies = [
-          sources."@actions/http-client-1.0.11"
-        ];
-      })
+      sources."@actions/github-5.0.3"
       sources."@actions/http-client-2.0.1"
       sources."@octokit/auth-token-2.5.0"
       sources."@octokit/core-3.6.0"
@@ -312,13 +299,13 @@ let
       sources."@octokit/graphql-4.8.0"
       sources."@octokit/openapi-types-12.10.1"
       sources."@octokit/plugin-paginate-rest-2.21.2"
-      sources."@octokit/plugin-rest-endpoint-methods-4.15.1"
+      sources."@octokit/plugin-rest-endpoint-methods-5.16.2"
       sources."@octokit/request-5.6.3"
       sources."@octokit/request-error-2.1.0"
       sources."@octokit/types-6.40.0"
       sources."@types/node-18.0.6"
       sources."@types/semver-7.3.10"
-      sources."@vercel/ncc-0.31.1"
+      sources."@vercel/ncc-0.34.0"
       sources."before-after-hook-2.2.2"
       sources."deprecation-2.3.1"
       sources."is-plain-object-5.0.0"
