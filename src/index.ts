@@ -84,6 +84,7 @@ async function run() {
         next = latest.inc(releaseType);
     }
 
+    core.setOutput('next-version', next.format());
 
     // if (dryRun === 'true') {
     //     console.log('Action configured for dry run. Exiting.');
