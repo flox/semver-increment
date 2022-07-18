@@ -175,6 +175,33 @@ let
         sha512 = "MFZOU5r8SwgJWDMhrLUSvyJPtVsqA6VnbVI3TNbsmw+Jnvrktzvq2fYES/6RiJA/5Ykdwq4mJmtlYUfW7CGjmw==";
       };
     };
+    "@types/node-18.0.6" = {
+      name = "_at_types_slash_node";
+      packageName = "@types/node";
+      version = "18.0.6";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@types/node/-/node-18.0.6.tgz";
+        sha512 = "/xUq6H2aQm261exT6iZTMifUySEt4GR5KX8eYyY+C4MSNPqSh9oNIP7tz2GLKTlFaiBbgZNxffoR3CVRG+cljw==";
+      };
+    };
+    "@types/semver-7.3.10" = {
+      name = "_at_types_slash_semver";
+      packageName = "@types/semver";
+      version = "7.3.10";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@types/semver/-/semver-7.3.10.tgz";
+        sha512 = "zsv3fsC7S84NN6nPK06u79oWgrPVd0NvOyqgghV1haPaFcVxIrP4DLomRwGAXk0ui4HZA7mOcSFL98sMVW9viw==";
+      };
+    };
+    "@vercel/ncc-0.34.0" = {
+      name = "_at_vercel_slash_ncc";
+      packageName = "@vercel/ncc";
+      version = "0.34.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@vercel/ncc/-/ncc-0.34.0.tgz";
+        sha512 = "G9h5ZLBJ/V57Ou9vz5hI8pda/YQX5HQszCs3AmIus3XzsmRn/0Ptic5otD3xVST8QLKk7AMk7AqpsyQGN7MZ9A==";
+      };
+    };
     "before-after-hook-2.2.2" = {
       name = "before-after-hook";
       packageName = "before-after-hook";
@@ -283,6 +310,15 @@ let
         sha512 = "1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==";
       };
     };
+    "typescript-4.7.4" = {
+      name = "typescript";
+      packageName = "typescript";
+      version = "4.7.4";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/typescript/-/typescript-4.7.4.tgz";
+        sha512 = "C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ==";
+      };
+    };
     "universal-user-agent-6.0.0" = {
       name = "universal-user-agent";
       packageName = "universal-user-agent";
@@ -357,6 +393,9 @@ let
       sources."@octokit/request-5.6.3"
       sources."@octokit/request-error-2.1.0"
       sources."@octokit/types-6.40.0"
+      sources."@types/node-18.0.6"
+      sources."@types/semver-7.3.10"
+      sources."@vercel/ncc-0.34.0"
       sources."before-after-hook-2.2.2"
       sources."deprecation-2.3.1"
       sources."encoding-0.1.13"
@@ -369,6 +408,7 @@ let
       sources."semver-7.3.7"
       sources."tr46-0.0.3"
       sources."tunnel-0.0.6"
+      sources."typescript-4.7.4"
       sources."universal-user-agent-6.0.0"
       sources."webidl-conversions-3.0.1"
       sources."whatwg-url-5.0.0"
@@ -380,7 +420,7 @@ let
       description = "";
       license = "MIT";
     };
-    production = true;
+    production = false;
     bypassCache = true;
     reconstructLock = true;
   };
