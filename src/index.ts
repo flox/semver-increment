@@ -1,7 +1,8 @@
 import * as github from '@actions/github';
 import * as core from '@actions/core';
 import semver, { ReleaseType } from 'semver/index';
-
+import { Context } from '@actions/github/lib/context';
+import { GitHub } from '@actions/github/lib/utils';
 
 
 interface Tag {
@@ -15,7 +16,7 @@ interface Tag {
     node_id: string;
 }
 
-async function* tagsGen(octokit, context): AsyncGenerator<Tag, void, unknown>{
+async function* tagsGen(octokit, context: Context): AsyncGenerator<Tag, void, unknown>{
 
     let page = 1;
     while (true) {
