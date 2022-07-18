@@ -20,7 +20,7 @@ async function* tagsGen(octokit, context: Context): AsyncGenerator<Tag, void, un
 
     let page = 1;
     while (true) {
-        const response = await octokit.repos.listTags({
+        const response = await octokit.rest.repos.listTags({
             owner: context.repo.owner,
             repo: context.repo.repo,
             page,
