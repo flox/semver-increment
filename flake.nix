@@ -14,7 +14,7 @@
             type = "app";
             program = (nixpkgs.legacyPackages.${system}.writeShellScript "updateNodePackages" ''
               
-              ${nixpkgs.legacyPackages.${system}.nodePackages.node2nix}/bin/node2nix --nodejs-16 -d
+              ${nixpkgs.legacyPackages.${system}.nodePackages.node2nix}/bin/node2nix --nodejs-16 -d --include-peer-dependencies
             '').outPath;
           };
         });

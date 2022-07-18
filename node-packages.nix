@@ -40,6 +40,15 @@ let
         sha512 = "r5FVUJCOLl19AxiuZD2VRZ/ORjp/4IN98Of6YJoJOkY75CIBuYfmiNHGrDwXr+aLGG55igl9QrxX3hbiXlLb+g==";
       };
     };
+    "@octokit/auth-token-3.0.0" = {
+      name = "_at_octokit_slash_auth-token";
+      packageName = "@octokit/auth-token";
+      version = "3.0.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@octokit/auth-token/-/auth-token-3.0.0.tgz";
+        sha512 = "MDNFUBcJIptB9At7HiV7VCvU3NcL4GnfCQaP8C5lrxWrRPMJBnemYtehaKSOlaM7AYxeRyj9etenu8LVpSpVaQ==";
+      };
+    };
     "@octokit/core-3.6.0" = {
       name = "_at_octokit_slash_core";
       packageName = "@octokit/core";
@@ -47,6 +56,15 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@octokit/core/-/core-3.6.0.tgz";
         sha512 = "7RKRKuA4xTjMhY+eG3jthb3hlZCsOwg3rztWh75Xc+ShDWOfDDATWbeZpAHBNRpm4Tv9WgBMOy1zEJYXG6NJ7Q==";
+      };
+    };
+    "@octokit/core-4.0.4" = {
+      name = "_at_octokit_slash_core";
+      packageName = "@octokit/core";
+      version = "4.0.4";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@octokit/core/-/core-4.0.4.tgz";
+        sha512 = "sUpR/hc4Gc7K34o60bWC7WUH6Q7T6ftZ2dUmepSyJr9PRF76/qqkWjE2SOEzCqLA5W83SaISymwKtxks+96hPQ==";
       };
     };
     "@octokit/endpoint-6.0.12" = {
@@ -58,6 +76,15 @@ let
         sha512 = "lF3puPwkQWGfkMClXb4k/eUT/nZKQfxinRWJrdZaJO85Dqwo/G0yOC434Jr2ojwafWJMYqFGFa5ms4jJUgujdA==";
       };
     };
+    "@octokit/endpoint-7.0.0" = {
+      name = "_at_octokit_slash_endpoint";
+      packageName = "@octokit/endpoint";
+      version = "7.0.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@octokit/endpoint/-/endpoint-7.0.0.tgz";
+        sha512 = "Kz/mIkOTjs9rV50hf/JK9pIDl4aGwAtT8pry6Rpy+hVXkAPhXanNQRxMoq6AeRgDCZR6t/A1zKniY2V1YhrzlQ==";
+      };
+    };
     "@octokit/graphql-4.8.0" = {
       name = "_at_octokit_slash_graphql";
       packageName = "@octokit/graphql";
@@ -65,6 +92,15 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@octokit/graphql/-/graphql-4.8.0.tgz";
         sha512 = "0gv+qLSBLKF0z8TKaSKTsS39scVKF9dbMxJpj3U0vC7wjNWFuIpL/z76Qe2fiuCbDRcJSavkXsVtMS6/dtQQsg==";
+      };
+    };
+    "@octokit/graphql-5.0.0" = {
+      name = "_at_octokit_slash_graphql";
+      packageName = "@octokit/graphql";
+      version = "5.0.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@octokit/graphql/-/graphql-5.0.0.tgz";
+        sha512 = "1ZZ8tX4lUEcLPvHagfIVu5S2xpHYXAmgN0+95eAOPoaVPzCfUXJtA5vASafcpWcO86ze0Pzn30TAx72aB2aguQ==";
       };
     };
     "@octokit/openapi-types-12.10.1" = {
@@ -103,6 +139,15 @@ let
         sha512 = "bFJl0I1KVc9jYTe9tdGGpAMPy32dLBXXo1dS/YwSCTL/2nd9XeHsY616RE3HPXDVk+a+dBuzyz5YdlXwcDTr2A==";
       };
     };
+    "@octokit/request-6.2.0" = {
+      name = "_at_octokit_slash_request";
+      packageName = "@octokit/request";
+      version = "6.2.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@octokit/request/-/request-6.2.0.tgz";
+        sha512 = "7IAmHnaezZrgUqtRShMlByJK33MT9ZDnMRgZjnRrRV9a/jzzFwKGz0vxhFU6i7VMLraYcQ1qmcAOin37Kryq+Q==";
+      };
+    };
     "@octokit/request-error-2.1.0" = {
       name = "_at_octokit_slash_request-error";
       packageName = "@octokit/request-error";
@@ -110,6 +155,15 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/@octokit/request-error/-/request-error-2.1.0.tgz";
         sha512 = "1VIvgXxs9WHSjicsRwq8PlR2LR2x6DwsJAaFgzdi0JfJoGSO8mYI/cHJQ+9FbN21aa+DrgNLnwObmyeSC8Rmpg==";
+      };
+    };
+    "@octokit/request-error-3.0.0" = {
+      name = "_at_octokit_slash_request-error";
+      packageName = "@octokit/request-error";
+      version = "3.0.0";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/@octokit/request-error/-/request-error-3.0.0.tgz";
+        sha512 = "WBtpzm9lR8z4IHIMtOqr6XwfkGvMOOILNLxsWvDwtzm/n7f5AWuqJTXQXdDtOvPfTDrH4TPhEvW2qMlR4JFA2w==";
       };
     };
     "@octokit/types-6.40.0" = {
@@ -166,6 +220,24 @@ let
         sha512 = "xmHIy4F3scKVwMsQ4WnVaS8bHOx0DmVwRywosKhaILI0ywMDWPtBSku2HNxRvF7jtwDRsoEwYQSfbxj8b7RlJQ==";
       };
     };
+    "encoding-0.1.13" = {
+      name = "encoding";
+      packageName = "encoding";
+      version = "0.1.13";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/encoding/-/encoding-0.1.13.tgz";
+        sha512 = "ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A==";
+      };
+    };
+    "iconv-lite-0.6.3" = {
+      name = "iconv-lite";
+      packageName = "iconv-lite";
+      version = "0.6.3";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.6.3.tgz";
+        sha512 = "4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==";
+      };
+    };
     "is-plain-object-5.0.0" = {
       name = "is-plain-object";
       packageName = "is-plain-object";
@@ -200,6 +272,15 @@ let
       src = fetchurl {
         url = "https://registry.npmjs.org/once/-/once-1.4.0.tgz";
         sha512 = "lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==";
+      };
+    };
+    "safer-buffer-2.1.2" = {
+      name = "safer-buffer";
+      packageName = "safer-buffer";
+      version = "2.1.2";
+      src = fetchurl {
+        url = "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz";
+        sha512 = "YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==";
       };
     };
     "semver-7.3.7" = {
@@ -298,7 +379,16 @@ let
       sources."@octokit/endpoint-6.0.12"
       sources."@octokit/graphql-4.8.0"
       sources."@octokit/openapi-types-12.10.1"
-      sources."@octokit/plugin-paginate-rest-2.21.2"
+      (sources."@octokit/plugin-paginate-rest-2.21.2" // {
+        dependencies = [
+          sources."@octokit/auth-token-3.0.0"
+          sources."@octokit/core-4.0.4"
+          sources."@octokit/endpoint-7.0.0"
+          sources."@octokit/graphql-5.0.0"
+          sources."@octokit/request-6.2.0"
+          sources."@octokit/request-error-3.0.0"
+        ];
+      })
       sources."@octokit/plugin-rest-endpoint-methods-5.16.2"
       sources."@octokit/request-5.6.3"
       sources."@octokit/request-error-2.1.0"
@@ -308,10 +398,13 @@ let
       sources."@vercel/ncc-0.34.0"
       sources."before-after-hook-2.2.2"
       sources."deprecation-2.3.1"
+      sources."encoding-0.1.13"
+      sources."iconv-lite-0.6.3"
       sources."is-plain-object-5.0.0"
       sources."lru-cache-6.0.0"
       sources."node-fetch-2.6.7"
       sources."once-1.4.0"
+      sources."safer-buffer-2.1.2"
       sources."semver-7.3.7"
       sources."tr46-0.0.3"
       sources."tunnel-0.0.6"
