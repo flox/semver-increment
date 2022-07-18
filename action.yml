@@ -13,7 +13,7 @@ inputs:
     default: ''
   base-version:
     description: 'The version which the latest version will be incremented.'
-    required: false
+    required: true
   release-type:
     description: 'Which Semver element to increment?'
     required: false
@@ -27,13 +27,10 @@ inputs:
     default: "false"
 
 outputs:
-  semantic-version:
+  next-version:
     description: 'The calculated version number.'
-  core-version: 
-    description: 'The core version part of the semantic version.'
-  previous-version:
-    description: 'The previous version number.'
+
 
 runs:
   using: 'node16'
-  main: 'dist/index.js'
+  main: 'dist/main.js'
