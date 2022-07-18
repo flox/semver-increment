@@ -1,0 +1,39 @@
+name: 'Semver Increment'
+description: 'Gets the previous semver tag and calculates the next version. Optionally apply the version as a new tag.'
+branding:
+  icon: 'arrow-up-circle'
+  color: 'blue'
+inputs:
+  GITHUB_TOKEN:
+    description: The github token.
+    required: true
+  tag-prefix:
+    description: 'A value prefixed to the version number when tagging the repo.'
+    required: false
+    default: ''
+  base-version:
+    description: 'The version which the latest version will be incremented.'
+    required: false
+  release-type:
+    description: 'Which Semver element to increment?'
+    required: false
+    default: patch
+  prerelease:
+    description: 'The prerelease tag to use.'
+    required: false
+  dry-run:
+    description: 'Performs a version calculation without committing a tag.'
+    required: false
+    default: "false"
+
+outputs:
+  semantic-version:
+    description: 'The calculated version number.'
+  core-version: 
+    description: 'The core version part of the semantic version.'
+  previous-version:
+    description: 'The previous version number.'
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
