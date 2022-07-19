@@ -51,23 +51,28 @@ async function run() {
    
     const base = core.getInput('base-version');
     const releaseType: ReleaseType = core.getInput('release-type') as ReleaseType;
-    const preid: String = core.getInput('preid') 
+    const preid: string = core.getInput('preid') 
     
     
     const tags = tagsGen(octokit, context);
 
-    let latest = semver.coerce(base);
     let baseVersionRange = new semver.Range(base, true);
-
-    console.log(`base-ref '${base}' was parsed as ${latest.format()}`);
-
+    let latest = semver.coerce(base);
     let exists = false;
     
     if (latest === null) {
-        console.warn(`'${base} is not a valid semver base version`);
-        return;
+        if (base === "*") {
+            latest = semver.parse("0.0.0");
+            console.warn(`Incrementeing latest version found in repository`);
+        }
+        else {
+            console.error(`'${base} is not a valid semver base version`);
+            return;
+        }
     }
 
+    core.info(`base-ref '${base}' was parsed as ${latest.format()}`);
+    
     for await (const tag of tags) {
         const taggedVersion = semver.parse(tag.name);
         if (taggedVersion === null) continue;
