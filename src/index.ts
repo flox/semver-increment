@@ -50,11 +50,10 @@ async function run() {
 
    
     const base = core.getInput('base-version');
-
     const releaseType: ReleaseType = core.getInput('release-type') as ReleaseType;
-
-    // const pattern = new RegExp(`^${tagPrefix}(\\d+)\\.(\\d+)\\.(\\d+)(-(\\w[\\w\.]*))?(\\+(\\w[\\w\\.]*))?$`, 'm');
-
+    const preid: String = core.getInput('preid') 
+    
+    
     const tags = tagsGen(octokit, context);
 
     let latest = semver.coerce(base);
@@ -81,10 +80,17 @@ async function run() {
 
     let next = latest;
     if (exists) {
-        next = latest.inc(releaseType);
+        next = latest.inc(releaseType, preid);
     }
 
     core.setOutput('next-version', next.format());
+    core.setOutput('next-version-major', next.major);
+    core.setOutput('next-version-minor', next.minor);
+    core.setOutput('next-version-patch', next.patch);
+    core.setOutput('next-version-preid', next.prerelease[0]);
+    core.setOutput('next-version-prerelease', next.prerelease[1]);
+
+
 
     // if (dryRun === 'true') {
     //     console.log('Action configured for dry run. Exiting.');
