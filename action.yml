@@ -7,19 +7,17 @@ inputs:
   GITHUB_TOKEN:
     description: The github token.
     required: true
-  tag-prefix:
-    description: 'A value prefixed to the version number when tagging the repo.'
-    required: false
-    default: ''
   base-version:
-    description: 'The version which the latest version will be incremented.'
-    required: true
+    description: 'The version which the latest subfield of will be incremented.'
+    default: "*"
+    required: false
   release-type:
     description: 'Which Semver element to increment?'
     required: false
     default: patch
-  prerelease:
-    description: 'The prerelease tag to use.'
+  preid:
+    description: 'The prerelease identifier to use.'
+    default: "pre"
     required: false
   dry-run:
     description: 'Performs a version calculation without committing a tag.'
