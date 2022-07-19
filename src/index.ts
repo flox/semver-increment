@@ -47,11 +47,8 @@ async function run() {
     const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
     const octokit = github.getOctokit(GITHUB_TOKEN);
     const { context } = github;
-    
 
-    
-    const dryRun = core.getInput('dry-run');
-    const prerelease = !!core.getInput('prerelease');
+   
     const base = core.getInput('base-version');
 
     const releaseType: ReleaseType = core.getInput('release-type') as ReleaseType;
@@ -60,8 +57,8 @@ async function run() {
 
     const tags = tagsGen(octokit, context);
 
-
     let latest = semver.coerce(base);
+    let baseVersionRange = new semver.Range(base, true);
 
     console.log(`base-ref '${base}' was parsed as ${latest.format()}`);
 
@@ -75,9 +72,8 @@ async function run() {
     for await (const tag of tags) {
         const taggedVersion = semver.parse(tag.name);
         if (taggedVersion === null) continue;
-        if (taggedVersion.major !== latest.major) continue;
 
-        if (taggedVersion.compare(latest) >= 0) {
+        if (baseVersionRange.test(taggedVersion) && taggedVersion.compare(latest) >= 0) {
             latest = taggedVersion;
             exists = true;
         }
